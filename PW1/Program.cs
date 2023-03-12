@@ -1,29 +1,56 @@
-﻿namespace PW1
+﻿public class Car
 {
-    class Car
+    private double maxSpeed;
+    private string name;
+
+    public Car(double maxSpeed, string name)
     {
-        public double maxSpeed;
-        public string name;
+        this.maxSpeed = maxSpeed;
+        this.name = name;
+    }
 
-        public Car(double maxSpedd,string name)
-        { 
-            this.maxSpeed = maxSpedd;
-            this.name = name;
-        }
+    public void propertyCar()
+    {
+        Console.WriteLine($"Скорость: {maxSpeed} км/ч, название {name}");
+    }
 
-        public  void propertyCar(double maxSpeed, string name)
+
+    public static void Main()
+    {
+        Console.WriteLine($"В гонке участвует 4 тачки:");
+
+        Car CarFirst = new Car(120, "Vaz2108");
+        CarFirst.propertyCar();
+
+        Car CarSecond = new Car(150, "Nissan Almera");
+        CarSecond.propertyCar();
+
+        Car CarThird = new Car(300, "White Prior with low clearance ");
+        CarThird.propertyCar();
+
+        Car CarFourth = new Car(90, "Gazzel");
+        CarFourth.propertyCar();
+
+
+        Console.WriteLine("");
+
+
+        if (CarFirst.maxSpeed > CarSecond.maxSpeed && CarFirst.maxSpeed > CarThird.maxSpeed && CarFirst.maxSpeed > CarFourth.maxSpeed)
         {
-            Console.WriteLine("Speed: " + maxSpeed + " Name: " + name);
+            Console.WriteLine($"Победил: {CarFirst.name}");
         }
-
-
-
-
-        static void Main()
+        else if (CarSecond.maxSpeed > CarFirst.maxSpeed && CarSecond.maxSpeed > CarThird.maxSpeed && CarSecond.maxSpeed > CarFourth.maxSpeed)
         {
-            Car CarFirst = new(120, "Vaz2108");
-           
-            Console.WriteLine(CarFirst.propertyCar);
+            Console.WriteLine($"Победил: {CarSecond.name}");
+        }
+        else if (CarThird.maxSpeed > CarFirst.maxSpeed && CarThird.maxSpeed > CarSecond.maxSpeed && CarThird.maxSpeed > CarFourth.maxSpeed)
+        {
+            Console.WriteLine($"Победил: {CarThird.name}");
+        }
+        else if (CarFourth.maxSpeed > CarFirst.maxSpeed && CarFourth.maxSpeed > CarSecond.maxSpeed && CarFourth.maxSpeed > CarThird.maxSpeed)
+        {
+            Console.WriteLine($"Победил: {CarFourth.name}");
         }
     }
 }
+
